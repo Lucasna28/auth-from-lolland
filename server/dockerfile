@@ -1,0 +1,18 @@
+# Use Node.js image as the base
+FROM node:latest
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json to install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy the source code into the container
+COPY . .
+
+# Expose the port the Express server runs on
+EXPOSE 3000
+
+# Add a startup log message
+CMD echo "Starting server..."; npm start
