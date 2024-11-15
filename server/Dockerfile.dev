@@ -11,11 +11,8 @@ RUN npm install
 # Copy the source code into the container
 COPY . .
 
-# Run the build command to compile TypeScript to JavaScript
-RUN npm run build
-
 # Expose the port the Express server runs on
 EXPOSE 3000
 
-# Add a startup log message and start the server
-CMD echo "Starting server..."; npm start
+# Use nodemon for development
+CMD ["npm", "run", "dev"]

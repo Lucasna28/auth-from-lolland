@@ -2,6 +2,7 @@ services:
   server:
     build:
       context: ./server
+      dockerfile: Dockerfile.dev
     ports:
       - "3000:3000"
     depends_on:
@@ -12,8 +13,12 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
+      SECRET_KEY: ${SECRET_KEY}
       REDIS_HOST: ${REDIS_HOST}
       REDIS_PORT: 6379
+    volumes:
+      - ./server:/app # Mount the server directory to the container for live reload
+      - /app/node_modules
 
   client:
     build:
