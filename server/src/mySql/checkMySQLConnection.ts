@@ -1,6 +1,6 @@
 import mysql from "mysql2/promise";
 
-export default async function checkMySQLConnection(retries = 5, delay = 3000) {
+export default async function checkMySQLConnection(retries = 20, delay = 3000) {
   while (retries > 0) {
     try {
       const connection = await mysql.createConnection({

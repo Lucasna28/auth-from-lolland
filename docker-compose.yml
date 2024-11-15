@@ -33,11 +33,10 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_ROOT_HOST: "%" 
+      MYSQL_ROOT_HOST: "%"
     volumes:
       - mysql_data:/var/lib/mysql
-    platform: linux/amd64  # Specify platform
-
+    platform: linux/amd64 # Specify platform
 
   redis:
     image: redis:latest
