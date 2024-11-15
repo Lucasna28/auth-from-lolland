@@ -72,9 +72,9 @@ export default function Home(): JSX.Element {
                 </Button>
               </motion.div>
             </div>
+          
           </motion.div>
         </section>
-
         <FeaturesSection />
         <PricingSection />
         <ReadyToGetStarted />

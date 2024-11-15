@@ -1,6 +1,4 @@
-"use client";
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { Lock, User, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -29,6 +27,9 @@ export default function Header() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
+          <Link href={"/"}>
+          
+          </Link>
           <Lock className="h-8 w-8 text-purple-500" />
           <span className="text-2xl font-bold">Auth from Lolland</span>
         </motion.div>
@@ -40,7 +41,7 @@ export default function Header() {
               whileTap={{ scale: 0.9 }}
             >
               <Link
-                href={`#${item.toLowerCase()}`}
+                href={item === "Docs" ? "/docs" : `#${item.toLowerCase()}`}
                 className="text-sm hover:text-purple-400"
               >
                 {item}
@@ -121,7 +122,7 @@ export default function Header() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  href={`#${item.toLowerCase()}`}
+                  href={item === "Docs" ? "/docs" : `#${item.toLowerCase()}`}
                   className="text-sm hover:text-purple-400"
                 >
                   {item}
