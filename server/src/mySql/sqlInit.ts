@@ -11,7 +11,7 @@ export default async function sqlInit() {
     );
 
     const connection = await mysql.createConnection({
-      host: "mysql",
+      host: process.env.MYSQL_HOST,
       user: process.env.MYSQL_USER,
       password: process.env.MYSQL_PASSWORD,
       database: process.env.MYSQL_DATABASE,
@@ -37,6 +37,6 @@ export default async function sqlInit() {
 
     await connection.end();
   } catch (error) {
-    console.error("Error starting SQL connection:", error);
+    console.error("Error starting SQL connection:");
   }
 }

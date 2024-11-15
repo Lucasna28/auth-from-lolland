@@ -18,6 +18,7 @@ app.post("/verifyToken", getInfoHandler);
 async function startServer() {
     console.log("hello world");
     try {
+        checkMySQLConnection()
         sqlInit();
         app.listen(port, () => {
             console.log(`Server is running on http://localhost:${port}`);

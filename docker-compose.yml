@@ -27,14 +27,17 @@ services:
       - "3001:3000"
 
   mysql:
-    image: mysql:latest
+    image: mysql/mysql-server:8.0
     ports:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_HOST: "%" 
     volumes:
       - mysql_data:/var/lib/mysql
+    platform: linux/amd64  # Specify platform
+
 
   redis:
     image: redis:latest
